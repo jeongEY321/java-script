@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        /*
+        Q1. 아래 문제를 각각 풀어보세요.
+        1. 빈 객체 user를 만듭니다.
+        2. user에 키가 name, 값이 John인 프로퍼티를 동적 추가하세요.
+        3. user에 키가 surname, 값이 Smith인 프로퍼티를 동적 추가하세요.
+        4. name의 값을 Pete로 수정해보세요.
+        5. user에서 프로퍼티 name을 삭제하세요.
+        */
+
+        var user = {};
+        user.name = 'John';
+        user.surname = 'Smith';
+
+        user.name = 'Pete';
+        delete user.name;
+
+
+
+
+        /*
+        Q2. 모든 팀원의 월급에 대한 정보를 담고있는 
+        객체가 있다고 가정해 봅시다.
+        변수 이름: salaries, 세명의 월급 정보를 직접 작성하세요.
+        */
+
+        var salaries = {
+            kim: 100,
+            park: 200,
+            lee: 300
+        };
+
+        /*
+        - 모든 팀원의 월급을 합한 값을 구하고,
+        그 값을 변수 total에 저장해 주는 코드를 작성 후
+        평균 월급을 구해 보세요.
+        */
+        var total = 0;
+        var jo = 0;
+        for (var s in salaries) {
+            total += salaries[key];
+            jo++;
+        };
+
+        console.log(`평균 월급: ${total / jo} 만원`);
+
+
+
+
+
+        /*
+        Q. 회원의 아이디정보와 비밀번호 정보가 들어있는 
+         객체 user가 있습니다. 
+        아래 요구사항에 맞는 프로그램을 작성하고 
+        브라우저에서 테스트하세요.
+        var user = {
+            kim1234:'kkk1234',
+            lee4567:'lll4567',
+            park9876:'ppp9876'
+        }
+        - 요구사항
+        1. 사용자에게 아이디를 입력받으세요.
+        2. 입력된 아이디가 객체에 존재하는 key가 아니라면
+        "존재하지 않는 회원입니다"를 출력하세요.
+        3. 아이디가 존재한다면 비밀번호를 입력받으세요.
+        4. 비밀번호가 입력한 아이디에 대응해서 일치한다면
+        "로그인 성공"을 출력하고 반복문을 탈출하세요.
+        5. 비밀번호가 다르다면 "비밀번호가 틀렸습니다" 를 출력하세요.
+        6. 로그인이 성공할때까지 반복하세요.
+        */
+
+        var user = {
+            kim1234:'kkk1234',
+            lee4567:'lll4567',
+            park9876:'ppp9876'
+        };
+
+        var id = prompt('id를 입력해주세요.');
+
+        out : while(true) {
+            for(var u in user) {
+
+             if(id == u) {
+                    var pw = prompt('pw를 입력해주세요');
+                    if(pw == user.id[key]) {
+                        alert('로그인 성공');
+                        break out;
+                    } else {
+                        alert('비밀번호가 틀렸습니다.');
+                    }
+                    break;
+                } else {
+                    alert('존재하지 않는 회원입니다.');
+                }
+            }
+        }
+        
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </script>
+</body>
+
+</html>

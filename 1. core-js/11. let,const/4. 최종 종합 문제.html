@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>최종 문제</title>
+</head>
+
+<body>
+    <script>
+        alert('1~100까지 중 랜덤한 숫자를 맞춰주세요.');
+        const ran = Math.ceil(Math.random() * 100) + 1;
+        var count = 5;
+        var start = 1;
+        var end = 100;
+
+        while (true) {
+            var number = +prompt(`${start}~${end}`);
+            if (number === ran) {
+                alert('정답입니다.');
+                if (count > -1) {
+                    alert('WIN!!');
+                    break;
+                } else {
+                    alert('LOSE ㅠㅠ');
+                    break;
+                }
+            } else if (number < ran) {
+                if (count <= 0) {
+                    alert(`up`);
+                    start = number+1;
+                    count--;
+                } else {
+                    alert(`up ${count}번 남았습니다.`);
+                    start = number+1;
+                    count--;
+                }
+            } else {
+                if (count <= 0) {
+                    alert(`down`);
+                    start = number-1;
+                    count--;
+                } else {
+                    alert(`down ${count}번 남았습니다.`);
+                    end = number-1;
+                    count--
+                }
+            }
+
+        }
+    </script>
+</body>
+
+</html>

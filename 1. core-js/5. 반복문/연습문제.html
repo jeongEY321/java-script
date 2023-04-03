@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>연습문제</title>
+</head>
+
+<body>
+
+    <script>
+        // Math.ramdom(): 0.0이상 1.0미만의 랜덤값.
+        // Math.floor(): 내림, Math.ceil(): 올림, Math.round(): 반올림;
+        // Math.floor((Math.random()*100)+1);
+        
+        while (true) {
+            var number1 = (Math.floor(Math.random()*20)+1);
+            var number2 = (Math.floor(Math.random()*20)+1);
+            var cal = Math.floor(Math.random()*3);
+
+            if (cal == 0) {
+                var ans = prompt(number1 + ' + ' + number2 + ' =');
+                var ans1 = ans == (number1+number2)  ? '정답입니다' : '틀렸습니다.';
+                alert(ans1);
+
+                if(ans == '그만') {
+                    break;
+                }
+            }
+            else if(cal == 1) {
+                var ans = prompt(number1 + ' - ' + number2 + ' =');
+                var ans1 = ans == (number1-number2)  ? '정답입니다' : '틀렸습니다.';
+                alert(ans1);
+                if(ans == '그만') {
+                    break;
+                }
+            } else {
+                var ans = prompt(number1 + ' * ' + number2 + ' =');
+                var ans1 = ans == (number1*number2)  ? '정답입니다' : '틀렸습니다.';
+                alert(ans1);
+                if(ans == '그만') {
+                    break;
+                }
+            }
+
+        }
+    </script>
+
+</body>
+
+</html>

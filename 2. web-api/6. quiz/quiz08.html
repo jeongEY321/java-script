@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    
+</head>
+<body>
+    
+    <h2>할 일 목록 만들기</h2>
+
+    <div class="name-form">
+        <h3 class="name-title"></h3>
+        <input type="text" placeholder="이름을 입력하세요" class="name-input">
+        <button class="btn1">확인</button>
+    </div>
+
+    <div class="todo-form">
+        <input type="text" placeholder="당신의 할 일을 적으세요." class="todo-input">
+        <button class="btn2">확인</button>
+    </div>
+
+    <ul class="todo-list">
+
+    </ul>
+
+    <script>
+
+        const $btn1 = document.querySelector('.btn1');
+        const $nameInput = document.querySelector('.name-input');
+        const $nameTitle = document.querySelector('.name-title');
+
+        $btn1.onclick = function() {
+            if($nameInput.value === '') {
+                return alert('이름을 작성해 주세요');
+            }
+            $nameTitle.textContent = `${$nameInput.value}님 안녕하세요!`;
+            $nameInput.style.display = 'none';
+            $btn1.style.display = 'none';
+        }
+
+        const $btn2 = document.querySelector('.btn2');
+        const $todoInput = document.querySelector('.todo-input');
+        const $todoList = document.querySelector('.todo-list');
+
+        $btn2.onclick = function() {
+            if($todoInput.value === '') {
+                return alert('할일을 작성해 주세요');
+            }
+            const $newLi = document.createElement('li');
+            $newLi.textContent = $todoInput.value;
+            $todoList.appendChild($newLi);
+            $todoInput.textContent = '';
+            const $newBtn = document.createElement('button');
+            $newBtn.textContent = 'X';
+            $newBtn.style.marginLeft = '10px';
+            $newLi.appendChild($newBtn);
+            $newBtn.addEventListener('click', e => {
+                $newLi.remove();
+            });
+            $todoInput.value = '';
+        }
+
+
+
+    </script>
+
+
+</body>
+</html>

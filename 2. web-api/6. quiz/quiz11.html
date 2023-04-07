@@ -61,17 +61,11 @@
 	삭제를 누를 때마다 해당 tr이 지워질 수 있도록 처리해 보세요.
    */
 
-        document.addEventListener('click', e => {
-            const $btn = [...document.querySelectorAll('button')];
-            console.log(e.target.textContent);
-            console.log($btn);
-            for (let i = 0; i > $btn.length; i++) {
+        const $table = document.querySelector("table");
 
-                console.log($btn[i])
-                if (e.target.textContent == $btn[i]) {
-
-                    e.target.parentNode.parentNode.remove();
-                }
+        $table.addEventListener("click", e => {
+            if (e.target.matches("button")) {
+                e.target.parentNode.parentNode.remove();
             }
         });
     </script>

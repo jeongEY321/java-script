@@ -64,7 +64,18 @@
         2. toggle-menu의 active속성을 삭제
         3. data-id 값에 알맞는 태그에 active속성 추가.
         */
-
+        const $ul = document.querySelector('ul');
+        const $menu = document.querySelectorAll('.toggle-menu');
+        
+        $ul.addEventListener('click', e => {
+            
+            for (let $l of [...$menu]) {
+                if ($l.classList.contains('active')) {
+                    $l.classList.toggle('active');
+                }
+                $l.classList.toggle("active", $l.matches(e.target.getAttribute('data-id')));
+            }
+        });
     
 
     </script>

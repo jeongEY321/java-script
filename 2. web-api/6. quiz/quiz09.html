@@ -10,7 +10,6 @@
     <style>
         body.dark {
             background: black;
-            color: white;
         }
 
         .center {
@@ -63,6 +62,10 @@
             box-sizing: border-box;
             resize: none;
         }
+
+        a {
+            color: black;
+        }
     </style>
 
 </head>
@@ -104,14 +107,17 @@
         */
         const $btn1 = document.getElementById('btn1');
         const $body = document.querySelector('body');
+        const $tags = document.querySelectorAll('p, h2, a');
 
         $btn1.onclick = function () {
             $body.classList.toggle('dark');
             if ($btn1.textContent === '밝게 보기') {
-                return $btn1.textContent = '어둡게 보기';
+                $btn1.textContent = '어둡게 보기';
+                [...$tags].forEach($ele => $ele.style.color = 'black');
+                return;
             }
             $btn1.textContent = '밝게 보기';
-
+            [...$tags].forEach($ele => $ele.style.color = 'white');
         }
 
         /*
@@ -124,6 +130,7 @@
         const $btn2 = document.getElementById('btn2');
         const $name = document.querySelector('.name');
         const $p = document.querySelector('p');
+        const $a = document.querySelector('a');
 
         $btn2.onclick = function () {
             
@@ -131,12 +138,15 @@
                 $p.textContent =
                     '자바스크립트는 객체 기반의 스크립트 프로그래밍 언어이다. 이 언어는 웹 브라우저 내에서 주로 사용하며, 다른 응용 프로그램의 내장 객체에도 접근할 수 있는 기능을 가지고 있다. 또한 Node.js와 같은 런타임 환경과 같이 서버 사이드 네트워크 프로그래밍에도 사용되고 있다.';
                 $btn2.textContent = '이름 보기';
-            } else {
-    
-                $p.textContent = `홍길동<br>20세<br>능력단위<br>Java, Oracle, Jsp, CSS, JavaScript`;
-                $btn2.textContent = '내용 보기';
-    
+                $a.style.display = 'block';
+                return;
             }
+    
+            $p.innerHTML = `홍길동<br>20세<br>능력단위<br>Java, Oracle, Jsp, CSS, JavaScript`;
+            $btn2.textContent = '내용 보기';
+            $a.style.display = 'none';
+    
+            
         }
 
 
@@ -151,12 +161,13 @@
 
         const $img = document.querySelector('img');
         const $btn3 = document.getElementById('btn3');
-        const $inner = document.querySelector('.inner');
-        const $newText = document.createElement('textarea');
-        $newText.style.height = '90%';
-        const $newBu = document.createElement('button');
-        $newBu.textContent = '등록하기';
+        // const $inner = document.querySelector('.inner');
+        // const $newText = document.createElement('textarea');
+        // $newText.style.height = '90%';
+        // const $newBu = document.createElement('button');
+        // $newBu.textContent = '등록하기';
 
+        /*
         $btn3.onclick = function() {
             if($inner.classList.toggle('inner')) {
                 $inner.classList.toggle('inner2')
@@ -172,11 +183,39 @@
             $inner.appendChild($newText);
             $inner.appendChild($newBu);
             $newText.style.display = 'block';
-            $newBu.style.display = 'block';
-            
+            $newBu.style.display = 'block';      
         }
+        */
 
+        $btn3.onclick = function() {
+            const $inner = document.querySelector('.left > .inner');
 
+            for(let $ele of [...$inner.children]) {
+                $inner.removeChild($ele);
+            }
+
+            $btn3.classList.toggle('write');
+
+            if($btn3.className === 'write') {
+                const $textarea = document.createElement('textarea');
+                $textarea.className = 'memo';
+                $textarea.style.height = '90%';
+                const $regBtn = document.createElement('button');
+                $regBtn.textContent = '등록하기';
+                const $frag = document.createDocumentFragment();
+                $frag.appendChild($textarea);
+                $frag.appendChild($regBtn);
+                $inner.appendChild($frag);
+
+                $btn3.textContent = '사진모드';
+            } else {
+                const $img = document.createElement('img');
+                $img.setAttribute('src', './img/1.jpg');
+                $inner.appendChild($img);
+
+                $btn3.textContent = '메모장 모드';
+            }
+        }
 
 
     </script>

@@ -64,6 +64,10 @@
         const $table = document.querySelector("table");
 
         $table.addEventListener("click", e => {
+            //매개변수를 선언하지 않으면 이벤트 객체를 못쓰냐? 아닙니다.
+            //event라는 이름으로 바로 사용이 가능합니다.
+            //근데 웬만하면 이름을 붙여서 쓰는게 편합니다
+            // console.log(event.target); <- e가 없어도 event가 그 대신을 함.
             if (e.target.matches("button")) {
                 e.target.parentNode.parentNode.remove();
             }

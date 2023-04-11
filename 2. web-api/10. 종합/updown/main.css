@@ -200,7 +200,7 @@ section.main .number-wrapper h2 em {
         transform: translateX(0) scale(1);
     }
     100% {
-        top: 10;
+        top: 10%;
         transform: translateX(-50%) scale(2);
     }
 }

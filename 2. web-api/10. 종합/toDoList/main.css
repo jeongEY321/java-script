@@ -1,3 +1,10 @@
+input,
+button {
+    border: none;
+    background: none;
+    outline: none;
+}
+
 li {
     list-style: none;
 }
@@ -15,8 +22,20 @@ section >.inner-section {
     left: 50%;
     top: 20%;
     transform: translate(-50%, -50%);
-    /* text-decoration: underline; */
 }
+
+section .inner-section .new {
+    overflow-y: scroll;
+}
+
+section .inner-section .new ul:nth-child(even) {
+    background: rgb(220, 219, 219);
+}
+
+/* section .inner-section .new ul .gkfdlf {
+    border: none;
+    background: none;
+} */
 
 section .inner-section h1 {
     color: white;
@@ -31,6 +50,7 @@ section .inner-section .box input,
 section .inner-section .box button {
     border: 0;
     padding: 2% 0 2% 1%;
+    overflow: hidden;
 }
 
 section .inner-section .box {
@@ -43,7 +63,7 @@ section .inner-section .box input {
     width: 90%;
 }
 
-section .inner-section .box .btn {
+section .inner-section .box .box-bu {
     background: rgb(129, 128, 128);
     border: 0;
     width: 10%;
@@ -54,3 +74,18 @@ section .inner-section .new {
     height: 100px;
 }
 
+@keyframes bye {
+    0% {
+        background: orange;
+        transform: translateX(20px);
+    }
+    50% {
+        background: orangered;
+        transform: translateX(-500px);
+    } 
+    100% {
+        background: red;
+        transform: translateX(-2000px);
+    }
+    
+}
